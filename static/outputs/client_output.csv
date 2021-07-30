@@ -1,0 +1,101 @@
+,Type,Material,Size,Length,Predicted_label,Confidence
+0,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+1,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+2,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+3,emt,galvanized steel,2.0,10 ft.,SAN010101000006,100
+4,emt,galvanized steel,3.0,10 ft.,SAN010101000008,100
+5,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+6,emt,galvanized steel,2.5,10 ft.,SAN010101000007,100
+7,emt,galvanized steel,1.25,10 ft.,SAN010101000004,100
+8,emt,galvanized steel,2.5,10 ft.,SAN010101000007,100
+9,emt,galvanized steel,2.0,10 ft.,SAN010101000006,100
+10,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+11,emt,galvanized steel,3.0,10 ft.,SAN010101000008,100
+12,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+13,emt,galvanized steel,1.0,10 ft.,SAN010101000003,100
+14,emt,galvanized steel,1.0,10 ft.,SAN010101000003,100
+15,emt,galvanized steel,4.0,10 ft.,SAN010101000010,100
+16,emt,galvanized steel,2.0,10 ft.,SAN010101000006,100
+17,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+18,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+19,emt,galvanized steel,4.0,10 ft.,SAN010101000010,100
+20,emt,galvanized steel,3.0,10 ft.,SAN010101000008,100
+21,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+22,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+23,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+24,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+25,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+26,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+27,emt,galvanized steel,4.0,10 ft.,SAN010101000010,100
+28,emt,galvanized steel,4.0,10 ft.,SAN010101000010,100
+29,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+30,emt,galvanized steel,1.5,10 ft.,SAN010101000005,100
+31,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+32,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+33,emt,galvanized steel,1.0,10 ft.,SAN010101000003,100
+34,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+35,emt,galvanized steel,2.5,10 ft.,SAN010101000007,100
+36,emt,galvanized steel,3.5,10 ft.,SAN010101000009,100
+37,emt,galvanized steel,3.0,10 ft.,SAN010101000008,100
+38,emt,galvanized steel,3.5,10 ft.,SAN010101000009,100
+39,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+40,emt,galvanized steel,1.5,10 ft.,SAN010101000005,100
+41,emt,galvanized steel,3.5,10 ft.,SAN010101000009,100
+42,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+43,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+44,emt,galvanized steel,2.0,10 ft.,SAN010101000006,100
+45,emt,galvanized steel,0.5,10 ft.,SAN010101000001,100
+46,emt,galvanized steel,4.0,10 ft.,SAN010101000010,100
+47,emt,galvanized steel,2.5,10 ft.,SAN010101000007,100
+48,emt,galvanized steel,1.25,10 ft.,SAN010101000004,100
+49,emt,galvanized steel,2.5,10 ft.,SAN010101000007,100
+50,emt,galvanized steel,1.0,10 ft.,SAN010101000003,100
+51,emt,galvanized steel,1.0,10 ft.,SAN010101000003,100
+52,emt,galvanized steel,0.75,10 ft.,SAN010101000002,100
+53,lfmc,pvc coated galvanized steel,1.5,50 ft.,SAN010101000447,100
+54,lfmc,pvc coated galvanized steel,1.0,100 ft.,SAN010101001141,100
+55,lfmc,pvc coated galvanized steel,0.75,100 ft.,SAN010101001140,100
+56,lfmc,pvc coated galvanized steel,2.0,50 ft.,SAN010101000448,100
+57,lfmc,pvc coated galvanized steel,2.0,100 ft.,SAN010101001144,100
+58,lfmc,pvc coated galvanized steel,3.0,25 ft.,SAN010101000425,100
+59,lfmc,pvc coated galvanized steel,1.5,50 ft.,SAN010101000447,100
+60,lfmc,pvc coated galvanized steel,2.5,25 ft.,SAN010101000424,100
+61,lfmc,pvc coated galvanized steel,2.0,100 ft.,SAN010101001144,100
+62,lfmc,pvc coated galvanized steel,4.0,25 ft.,SAN010101000427,100
+63,lfmc,pvc coated galvanized steel,1.5,50 ft.,SAN010101000447,100
+64,lfmc,pvc coated galvanized steel,0.75,500 ft.,SAN010101000275,100
+65,lfmc,pvc coated galvanized steel,0.5,200 ft.,SAN010101000515,100
+66,lfmc,pvc coated galvanized steel,1.0,100 ft.,SAN010101001141,100
+67,lfmc,pvc coated galvanized steel,1.25,50 ft.,SAN010101000446,100
+68,lfmc,pvc coated galvanized steel,3.0,25 ft.,SAN010101000425,100
+69,lfmc,pvc coated galvanized steel,1.5,150 ft.,SAN010101000374,100
+70,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+71,lfnc,pvc,1.0,500 ft.,SAN010101000264,100
+72,lfmc,pvc coated galvanized steel,2.0,50 ft.,SAN010101000448,100
+73,lfnc,pvc,0.75,175 ft.,SAN010101000383,100
+74,lfnc,pvc,1.0,400 ft.,"['SAN010101000216', 'SAN010101000264', 'SAN010101000312']",95
+75,lfnc,pvc,0.75,500 ft.,SAN010101000263,100
+76,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+77,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+78,lfnc,pvc,1.5,150 ft.,SAN010101002979,100
+79,lfnc,pvc,1.0,500 ft.,SAN010101000264,100
+80,lfnc,pvc,0.75,100 ft.,SAN010101000215,100
+81,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+82,lfnc,pvc,1.25,100 ft.,SAN010101000217,100
+83,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+84,lfnc,pvc,1.5,50 ft.,SAN010101000206,100
+85,lfnc,pvc,0.75,400 ft.,"['SAN010101000215', 'SAN010101000263', 'SAN010101000311']",95
+86,lfnc,pvc,0.5,1000 ft.,SAN010101000250,100
+87,lfnc,pvc,0.75,500 ft.,SAN010101000263,100
+88,lfnc,pvc,2.0,50 ft.,SAN010101000207,100
+89,lfnc,pvc,0.5,100 ft.,SAN010101000214,100
+90,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+91,lfnc,pvc,1.5,50 ft.,SAN010101000206,100
+92,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+93,lfnc,pvc,1.0,100 ft.,SAN010101000216,100
+94,lfnc,pvc,1.25,50 ft.,SAN010101000205,100
+95,lfnc,pvc,1.25,50 ft.,SAN010101000205,100
+96,lfnc,pvc,1.5,50 ft.,SAN010101000206,100
+97,lfnc,pvc,1.25,200 ft.,SAN010101000313,100
+98,lfnc,pvc,0.5,1000 ft.,SAN010101000250,100
+99,lfnc,pvc,0.75,175 ft.,SAN010101000383,100

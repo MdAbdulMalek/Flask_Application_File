@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Sanveo Catalogue Matching</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="#" rel="icon">
+    <link href="#" rel="touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='assets/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{url_for('static', filename='assets/css/style.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- =======================================================
+  * Template Name: Sanveo Catalaogue Match - v1.0
+  * Template URL: #
+  * Author: Wasim Shaikh
+  * License: #
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container">
+
+            <div class="logo float-left col-sm-4 pl-0">
+                <div class="text-light">
+                    <a href="index.html"><img src="{{url_for('static', filename='assets/img/sanveo-logo.png')}}" /></a>
+                </div>
+            </div>
+            <!-- <nav class="nav-menu float-left d-none d-lg-block pt-3 pl-5">
+        <ul>
+          <li><a href="#"></a></li>
+        </ul>
+      </nav> -->
+            <!-- .nav-menu -->
+        </div>
+        <!-- end container -->
+    </header>
+    <!-- end header -->
+
+    <section class="counts-new section-bg">
+        <div class="container">
+            <form id="upload-client-csv" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p class="font-weight-bold">Upload Supplier's CSV File</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p id="msg-client"></p>
+                        <p><input type="file" name="source_fileName" id="source_fileName" class="custom-file-input" accept="csv/*" multiple></p>
+                        <!-- <p><input type="submit" value="Upload" id="upload-client" class="custom-file-input"></p> -->
+                        <div>
+                            <button id="upload-client">Upload</button>
+                        </div>
+
+                    </div>
+                    <!-- <div class="col-12 col-md-3">
+                        <p><input type="submit" value="Upload" class="custom-file-input"></p>
+                    </div> -->
+                    <div class="col-12 col-md-6">
+                        <p class="font-weight-bold">Available Features From Client File</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <select id="sourceHeaderFields" multiple="multiple" class="w-100">
+                  </select>
+                        <p class="font-weight-bold">Features</p>
+                    </div>
+                </div>
+                <!-- end row -->
+            </form>
+            <form id="upload-sanveo-csv" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p class="font-weight-bold">Upload Sanveo CSV File</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p id="msg-sanveo"></p>
+                        <p><input type="file" name="source_fileName_Sanveo" id="source_fileName_Sanveo" class="custom-file-input" accept="csv/*" multiple></p>
+                        <!-- <p><input type="submit" value="Upload" id="upload-sanveo" class="custom-file-input"></p> -->
+                        <button id="upload-sanveo">Upload</button>
+                    </div>
+                    <!-- <div class="col-12 col-md-3">
+                        <p><input type="submit" value="Upload"></p>
+                    </div> -->
+                    <div class="col-12 col-md-6">
+                        <p class="font-weight-bold">Available Features From Sanveo File</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <select id="sourceHeaderFieldsSanveo" multiple="multiple" class="w-100" class="w-100">
+                  </select>
+                        <p class="font-weight-bold">Features</p>
+                    </div>
+                </div>
+                <!-- end row -->
+            </form>
+            <form id="#" action="" method="post" enctype="mutipart/form-data">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p class="font-weight-bold">Choose Which Columns You Want To Match From Client File</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <select name="sourceHeaderFieldsClient" id="sourceHeaderFieldsClient" multiple="multiple" class="w-100" class="w-100"> </select>
+                        <!-- <p class="font-weight-bold">All Columns matched with Sanveo File</p> -->
+                    </div>
+                    <div class="col-3 col-md-4"></div>
+                    <div class="col-12 col-md-4 text-center checkbox-style mt-3">
+                        <input type="checkbox" id="matched" name="matched" value="columns-matched">
+                        <label for="matched" id="match_text"></label>
+                    </div>
+                    <div class="col-3 col-md-4"></div>
+                    <!-- <button name="processBtn" type="submit">Process</button> -->
+                    <div class="col-3 col-md-4"></div>
+                    <div class="col-12 col-md-4 text-center mt-5">
+                        <button name="processBtn" id="processBtn" class="btn btn-danger w-100" type="submit">Process</button>
+                        <p class="pt-3" id="process_msg"></p>
+                        <p class="pt-3">
+                            <a href="{{ url_for('download_output_file') }}" id="download"></a>
+                        </p>
+
+                    </div>
+                    <div class="col-3 col-md-4"></div>
+
+                </div>
+                <!-- end row -->
+            </form>
+        </div>
+        <!-- end container -->
+    </section>
+    <!-- end section -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright"></div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    multiFiles
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Import CSV Library -->
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <script>
+        $(function() {
+            $('#upload-client-csv').on('change', function(evt) {
+
+                var filesCount = evt.target.files.length;
+                for (i = 0; i < filesCount; i++) {
+                    var file = evt.target.files[i];
+                    if (file) {
+                        var reader = new FileReader();
+
+                        // Read our file to an ArrayBuffer
+                        reader.readAsArrayBuffer(file);
+
+                        // Handler for onloadend event.  Triggered each time the reading operation is completed (success or failure) 
+                        reader.onloadend = function(evt) {
+                            // Get the Array Buffer
+                            var data = evt.target.result;
+
+                            // Grab our byte length
+                            var byteLength = data.byteLength;
+
+                            // Convert to conventional array, so we can iterate though it
+                            var ui8a = new Uint8Array(data, 0);
+
+                            // Used to store each character that makes up CSV header
+                            var headerString = '';
+
+                            // Iterate through each character in our Array
+                            for (var i = 0; i < byteLength; i++) {
+                                // Get the character for the current iteration
+                                var char = String.fromCharCode(ui8a[i]);
+
+                                // Check if the char is a new line
+                                if (char.match(/[^\r\n]+/g) !== null) {
+
+                                    // Not a new line so lets append it to our header string and keep processing
+                                    headerString += char;
+
+                                } else {
+                                    // We found a new line character, stop processing
+                                    break;
+                                }
+                            }
+                            //Iterate through the list and populate the select element..
+                            $.each(headerString.split(","), function(i, e) {
+                                $("#sourceHeaderFields").append($("<option>", {
+                                    text: e,
+                                    value: e
+                                }));
+                                $("#sourceHeaderFieldsClient").append($("<option>", {
+                                    text: e,
+                                    value: e
+                                }));
+                            });
+                            console.log(headerString);
+                            console.log("Next Read");
+                        };
+                    } else {
+                        alert("Failed to load file");
+                    }
+                }
+
+            });
+        });
+
+        $(function() {
+            $('#upload-sanveo-csv').on('change', function(evt) {
+
+                var filesCount = evt.target.files.length;
+                for (i = 0; i < filesCount; i++) {
+                    var file = evt.target.files[i];
+                    if (file) {
+                        var reader = new FileReader();
+
+                        // Read our file to an ArrayBuffer
+                        reader.readAsArrayBuffer(file);
+
+                        // Handler for onloadend event.  Triggered each time the reading operation is completed (success or failure) 
+                        reader.onloadend = function(evt) {
+                            // Get the Array Buffer
+                            var data = evt.target.result;
+
+                            // Grab our byte length
+                            var byteLength = data.byteLength;
+
+                            // Convert to conventional array, so we can iterate though it
+                            var ui8a = new Uint8Array(data, 0);
+
+                            // Used to store each character that makes up CSV header
+                            var headerString = '';
+
+                            // Iterate through each character in our Array
+                            for (var i = 0; i < byteLength; i++) {
+                                // Get the character for the current iteration
+                                var char = String.fromCharCode(ui8a[i]);
+
+                                // Check if the char is a new line
+                                if (char.match(/[^\r\n]+/g) !== null) {
+
+                                    // Not a new line so lets append it to our header string and keep processing
+                                    headerString += char;
+
+                                } else {
+                                    // We found a new line character, stop processing
+                                    break;
+                                }
+                            }
+                            //Iterate through the list and populate the select element..
+                            $.each(headerString.split(","), function(i, e) {
+                                $("#sourceHeaderFieldsSanveo").append($("<option>", {
+                                    text: e,
+                                    value: e
+                                }));
+                            });
+                            console.log(headerString);
+                            console.log("Next Read");
+                        };
+                    } else {
+                        alert("Failed to load file");
+                    }
+                }
+
+            });
+        });
+
+        $(document).ready(function(e) {
+            $('#processBtn').on('click', function(evt) {
+                evt.preventDefault()
+                var selectedCols = new FormData()
+                var tmp = $('#sourceHeaderFieldsClient').val()
+                selectedCols.set('sourceHeaderFieldsClient', tmp)
+
+                $.ajax({
+                    url: '/process', // point to server-side URL
+                    dataType: 'json', // what to expect back from server
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: selectedCols,
+                    type: 'post',
+                    success: function(response) { // display success response
+                        $('#process_msg').html('');
+                        $.each(response, function(key, data) {
+                            if (key == 'message_match') {
+                                $('#match_text').html(data);
+                            } else if (key == 'message_finish') {
+                                $('#process_msg').append(data + '<br/>');
+                            } else if (key == 'message_match') {
+                                $('#matched').html(data)
+                            } else if (key == 'download_msg') {
+                                $('#download').html(data)
+                            } else if (key == 'flag') {
+                                if (data == 1) {
+                                    $('#matched').prop('checked', true);
+                                } else {
+                                    $('#matched').prop('checked', false)
+                                }
+                            }
+                        })
+                    },
+                    error: function(response) {
+                        $('#process_msg').html(response.message); // display error response
+                    }
+                });
+            });
+        });
+
+
+        $(document).ready(function(e) {
+            $('#upload-client').on('click', function(evt) {
+                evt.preventDefault()
+                var form_data = new FormData();
+                var ins = document.getElementById('source_fileName').files.length;
+
+                if (ins == 0) {
+                    $('#msg-client').html('<span style="color:red">Select at least one file</span>');
+                    return;
+                }
+
+                for (var x = 0; x < ins; x++) {
+                    form_data.append("source_fileName", document.getElementById('source_fileName').files[x]);
+                }
+
+                $.ajax({
+                    url: '/upload_client', // point to server-side URL
+                    dataType: 'json', // what to expect back from server
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data,
+                    type: 'post',
+                    success: function(response) { // display success response
+                        $('#msg-client').html('');
+                        $.each(response, function(key, data) {
+                            if (key !== 'message') {
+                                $('#msg-client').append(key + ' -> ' + data + '<br/>');
+                            } else {
+                                $('#msg-client').append(data + '<br/>');
+                            }
+                        })
+                    },
+                    error: function(response) {
+                        $('#msg-client').html(response.message); // display error response
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function(e) {
+            $('#upload-sanveo').on('click', function(evt) {
+                evt.preventDefault()
+                var form_data = new FormData();
+                var ins = document.getElementById('source_fileName_Sanveo').files.length;
+
+                if (ins == 0) {
+                    $('#msg-sanveo').html('<span style="color:red">Select at least one file</span>');
+                    return;
+                }
+
+                for (var x = 0; x < ins; x++) {
+                    form_data.append("source_fileName_Sanveo", document.getElementById('source_fileName_Sanveo').files[x]);
+                }
+
+                $.ajax({
+                    url: '/upload_sanveo', // point to server-side URL
+                    dataType: 'json', // what to expect back from server
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data,
+                    type: 'post',
+                    success: function(response) { // display success response
+                        $('#msg-sanveo').html('');
+                        $.each(response, function(key, data) {
+                            if (key !== 'message') {
+                                $('#msg-sanveo').append(key + ' -> ' + data + '<br/>');
+                            } else {
+                                $('#msg-sanveo').append(data + '<br/>');
+                            }
+                        })
+                    },
+                    error: function(response) {
+                        $('#msg-sanveo').html(response.message); // display error response
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- Vendor JS Files -->
+    <script src="{{url_for('static', filename='assets/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+
+
+</body>
+
+</html>

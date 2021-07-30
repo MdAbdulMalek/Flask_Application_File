@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> upload </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="https://bootswatch.com/4/solar/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<script>
+
+$(function () { 
+
+    function moveItems(origin, dest) {
+        $(origin).find(':selected').appendTo(dest);
+    }
+
+    function moveAllItems(origin, dest) {
+        $(origin).children().appendTo(dest);
+    }
+
+    $('#left').click(function () {
+        moveItems('#targetHeaderFields', '#sourceHeaderFields');
+    });
+
+    $('#right').on('click', function () {
+        moveItems('#sourceHeaderFields', '#targetHeaderFields');
+    });
+
+    $('#leftall').on('click', function () {
+        moveAllItems('#targetHeaderFields', '#sourceHeaderFields');
+    });
+
+    $('#rightall').on('click', function () {
+        moveAllItems('#sourceHeaderFields', '#targetHeaderFields');
+    });
+
+    $('#populateHeaderFields').on('click', function () {
+
+        alert("Inside populate list");
+
+        var files = ('#source_fileName').files;
+        alert("Files Count - "+ files);
+    });
+
+    $('#upload-form').on('change', function(evt) {
+
+        var filesCount = evt.target.files.length;
+        for (i = 0; i < filesCount; i++) {
+            var file = evt.target.files[i];   
+            if (file) {
+             var reader = new FileReader();
+
+              // Read our file to an ArrayBuffer
+                reader.readAsArrayBuffer(file);
+
+                // Handler for onloadend event.  Triggered each time the reading operation is completed (success or failure) 
+                reader.onloadend = function (evt) {
+                    // Get the Array Buffer
+                    var data = evt.target.result;
+
+                    // Grab our byte length
+                    var byteLength = data.byteLength;
+
+                    // Convert to conventional array, so we can iterate though it
+                    var ui8a = new Uint8Array(data, 0);
+
+                    // Used to store each character that makes up CSV header
+                    var headerString = '';
+
+                    // Iterate through each character in our Array
+                    for (var i = 0; i < byteLength; i++) {
+                        // Get the character for the current iteration
+                        var char = String.fromCharCode(ui8a[i]);
+
+                        // Check if the char is a new line
+                        if (char.match(/[^\r\n]+/g) !== null) {
+
+                            // Not a new line so lets append it to our header string and keep processing
+                            headerString += char;
+
+                        } else {
+                            // We found a new line character, stop processing
+                            break;
+                        }
+                    }
+                    //Iterate through the list and populate the select element..
+                    $.each(headerString.split(","), function(i,e){
+                        $("#sourceHeaderFields").append($("<option>", {
+                            text: e,
+                            value: e
+                        }));
+                    });
+                    console.log(headerString);
+                    console.log("Next Read");
+                };
+            } else { 
+              alert("Failed to load file");
+            }
+        }
+
+    });
+});
+
+</script>
+
+<body>
+<div class="container">
+    <h1>Large Data Generation</h1>      
+</div>
+
+<form id = "upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+        <div id="file-selector">
+            <p> 
+                <strong>Input File: </strong>
+                <input id="source_fileName" type="file" name="source_fileName" accept="csv/*" multiple >
+                </p> 
+        </div>
+
+    <h2>Move Items From One List to Another</h2>
+    <select id="sourceHeaderFields" multiple="multiple">
+    </select>
+<select id="targetHeaderFields" multiple="multiple">
+</select>
+<br />
+    <input type="button" id="left" value="<" />
+    <input type="button" id="right" value=">" />
+    <input type="button" id="leftall" value="<<" />
+    <input type="button" id="rightall" value=">>" />
+</body>
+</html>
